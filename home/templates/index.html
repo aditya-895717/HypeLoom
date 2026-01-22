@@ -1,0 +1,317 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}HYPELOOM | Fashion for Everyone{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container-fluid">
+        <div class="row align-items-center g-0">
+            <div class="col-lg-6 px-5 py-5 hero-content">
+                <h1 class="display-3 fw-bold mb-4">
+                    Elevate Your <span class="text-primary">Style</span>
+                </h1>
+                <p class="fs-5 text-muted mb-4">
+                    Discover curated fashion collections for every occasion. From timeless classics to trending styles, 
+                    we have everything you need to express your unique fashion sense.
+                </p>
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="#" class="btn btn-dark btn-lg">
+                        <i class="fas fa-shopping-bag me-2"></i> Shop Now
+                    </a>
+                    <a href="#" class="btn btn-outline-dark btn-lg">
+                        <i class="fas fa-play-circle me-2"></i> Watch Video
+                    </a>
+                </div>
+                <div class="mt-5 pt-3">
+                    <div class="row">
+                        <div class="col-6">
+                            <h4 class="text-dark mb-1">50K+</h4>
+                            <p class="text-muted small">Happy Customers</p>
+                        </div>
+                        <div class="col-6">
+                            <h4 class="text-dark mb-1">10K+</h4>
+                            <p class="text-muted small">Products</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 hero-image">
+                <img src="{% static 'images/hero-model.png' %}" alt="Fashion Model" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Categories -->
+<section class="categories-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3">Shop by Category</h2>
+            <p class="fs-5 text-muted">Explore our curated collections</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Women Category -->
+            <div class="col-md-6 col-lg-3">
+                <div class="category-card">
+                    <div class="category-image-wrapper">
+                        <img src="{% static 'images/women.png' %}" alt="Women Collection" class="img-fluid">
+                        <div class="category-overlay">
+                            <a href="#" class="btn btn-light">
+                                <i class="fas fa-arrow-right me-2"></i> Explore
+                            </a>
+                        </div>
+                    </div>
+                    <div class="category-info p-4 text-center">
+                        <h5 class="mb-2">Women Collection</h5>
+                        <p class="text-muted small mb-3">Discover elegant and trendy pieces</p>
+                        <span class="badge bg-light text-dark">235+ Items</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Men Category -->
+            <div class="col-md-6 col-lg-3">
+                <div class="category-card">
+                    <div class="category-image-wrapper">
+                        <img src="{% static 'images/men.png' %}" alt="Men Collection" class="img-fluid">
+                        <div class="category-overlay">
+                            <a href="#" class="btn btn-light">
+                                <i class="fas fa-arrow-right me-2"></i> Explore
+                            </a>
+                        </div>
+                    </div>
+                    <div class="category-info p-4 text-center">
+                        <h5 class="mb-2">Men Collection</h5>
+                        <p class="text-muted small mb-3">Classic and modern styles</p>
+                        <span class="badge bg-light text-dark">180+ Items</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kids Category -->
+            <div class="col-md-6 col-lg-3">
+                <div class="category-card">
+                    <div class="category-image-wrapper">
+                        <img src="{% static 'images/kids.png' %}" alt="Kids Collection" class="img-fluid">
+                        <div class="category-overlay">
+                            <a href="#" class="btn btn-light">
+                                <i class="fas fa-arrow-right me-2"></i> Explore
+                            </a>
+                        </div>
+                    </div>
+                    <div class="category-info p-4 text-center">
+                        <h5 class="mb-2">Kids Collection</h5>
+                        <p class="text-muted small mb-3">Comfortable and playful outfits</p>
+                        <span class="badge bg-light text-dark">120+ Items</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Arrivals -->
+            <div class="col-md-6 col-lg-3">
+                <div class="category-card">
+                    <div class="category-image-wrapper">
+                        <img src="{% static 'images/new-arrivals.png' %}" alt="New Arrivals" class="img-fluid">
+                        <div class="category-overlay">
+                            <a href="#" class="btn btn-light">
+                                <i class="fas fa-arrow-right me-2"></i> Explore
+                            </a>
+                        </div>
+                    </div>
+                    <div class="category-info p-4 text-center">
+                        <h5 class="mb-2">New Arrivals</h5>
+                        <p class="text-muted small mb-3">Latest trends and styles</p>
+                        <span class="badge bg-danger">45 New</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features-section bg-light py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-3 col-sm-6 text-center">
+                <div class="feature-icon mb-3">
+                    <i class="fas fa-truck fa-3x text-primary"></i>
+                </div>
+                <h5 class="mb-2">Free Shipping</h5>
+                <p class="text-muted">On orders over $100 worldwide</p>
+            </div>
+            
+            <div class="col-md-3 col-sm-6 text-center">
+                <div class="feature-icon mb-3">
+                    <i class="fas fa-undo fa-3x text-primary"></i>
+                </div>
+                <h5 class="mb-2">Easy Returns</h5>
+                <p class="text-muted">30-day return policy, no questions asked</p>
+            </div>
+            
+            <div class="col-md-3 col-sm-6 text-center">
+                <div class="feature-icon mb-3">
+                    <i class="fas fa-lock fa-3x text-primary"></i>
+                </div>
+                <h5 class="mb-2">Secure Checkout</h5>
+                <p class="text-muted">SSL encrypted and PCI compliant</p>
+            </div>
+            
+            <div class="col-md-3 col-sm-6 text-center">
+                <div class="feature-icon mb-3">
+                    <i class="fas fa-headset fa-3x text-primary"></i>
+                </div>
+                <h5 class="mb-2">24/7 Support</h5>
+                <p class="text-muted">Dedicated customer service team</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Products -->
+<section class="featured-products py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3">Featured Products</h2>
+            <p class="fs-5 text-muted">Best sellers this season</p>
+        </div>
+
+        <div class="row g-4">
+            {% for i in "12345678" %}
+            <div class="col-md-6 col-lg-3">
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="{% static 'images/product.png' %}" alt="Product" class="img-fluid">
+                        <div class="product-badge">Sale</div>
+                        <div class="product-overlay">
+                            <button class="btn btn-light btn-sm me-2">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="btn btn-dark btn-sm">
+                                <i class="fas fa-shopping-bag"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info p-3">
+                        <h6 class="mb-2">Premium Blazer</h6>
+                        <p class="text-muted small mb-2">Perfect for every occasion</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="h6 mb-0">$79.99</span>
+                                <span class="text-decoration-line-through text-muted small ms-2">$99.99</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="#" class="btn btn-dark btn-lg">View All Products</a>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="newsletter-section bg-dark text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="display-5 fw-bold mb-3">Stay Updated</h2>
+                <p class="fs-5 mb-0">Subscribe to our newsletter to get exclusive deals and new collection updates.</p>
+            </div>
+            <div class="col-lg-6">
+                <form class="d-flex gap-2">
+                    <input type="email" class="form-control form-control-lg" placeholder="Enter your email" required>
+                    <button type="submit" class="btn btn-light btn-lg">
+                        <i class="fas fa-paper-plane me-2"></i> Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials-section py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold mb-3">What Our Customers Say</h2>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="testimonial-card p-4 rounded border">
+                    <div class="mb-3">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                    <p class="mb-3">"Amazing quality and fast delivery! The clothes fit perfectly and the customer service was excellent."</p>
+                    <div class="d-flex align-items-center">
+                        <img src="{% static 'images/avatar1.png' %}" alt="Customer" class="rounded-circle me-3" width="50">
+                        <div>
+                            <h6 class="mb-0">Sarah Johnson</h6>
+                            <small class="text-muted">Verified Buyer</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="testimonial-card p-4 rounded border">
+                    <div class="mb-3">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                    <p class="mb-3">"Best fashion store ever! Great variety and the prices are very competitive. Highly recommended."</p>
+                    <div class="d-flex align-items-center">
+                        <img src="{% static 'images/avatar2.png' %}" alt="Customer" class="rounded-circle me-3" width="50">
+                        <div>
+                            <h6 class="mb-0">Michael Chen</h6>
+                            <small class="text-muted">Verified Buyer</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="testimonial-card p-4 rounded border">
+                    <div class="mb-3">
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    </div>
+                    <p class="mb-3">"Love the exclusive designs! The quality is premium and the return process was hassle-free."</p>
+                    <div class="d-flex align-items-center">
+                        <img src="{% static 'images/avatar3.png' %}" alt="Customer" class="rounded-circle me-3" width="50">
+                        <div>
+                            <h6 class="mb-0">Emily Rodriguez</h6>
+                            <small class="text-muted">Verified Buyer</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

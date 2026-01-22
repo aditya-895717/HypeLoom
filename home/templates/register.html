@@ -1,0 +1,507 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}HYPELOOM | Create Account{% endblock %}
+
+{% block content %}
+<div class="auth-page">
+    <div class="container-fluid">
+        <div class="row g-0 min-vh-100">
+            <!-- Left Section -->
+            <div class="col-lg-6 auth-left">
+                <div class="auth-left-content">
+                    <h2 class="display-4 fw-bold mb-4">
+                        Create Your<br>Fashion Account
+                    </h2>
+                    <p class="fs-5 text-muted mb-5">
+                        Join millions of fashion enthusiasts and get access to exclusive collections, early access to sales, and personalized recommendations.
+                    </p>
+
+                    <div class="benefits">
+                        <div class="benefit-item mb-4">
+                            <div class="benefit-icon me-3">
+                                <i class="fas fa-check-circle text-success"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Exclusive Access</h6>
+                                <p class="text-muted small mb-0">Get early access to new collections</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item mb-4">
+                            <div class="benefit-icon me-3">
+                                <i class="fas fa-gift text-success"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Special Rewards</h6>
+                                <p class="text-muted small mb-0">Earn points on every purchase</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon me-3">
+                                <i class="fas fa-truck text-success"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-1">Free Shipping</h6>
+                                <p class="text-muted small mb-0">Free shipping on orders over $100</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Section - Form -->
+            <div class="col-lg-6 auth-right">
+                <div class="auth-form-wrapper">
+                    <div class="auth-header mb-4">
+                        <h4 class="mb-2">Create Account</h4>
+                        <p class="text-muted">Join our community today</p>
+                    </div>
+
+                    <!-- Error Alert -->
+                    <div id="errorAlert" class="alert alert-danger alert-dismissible fade show d-none" role="alert">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        <span id="errorMessage"></span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+
+                    <!-- Success Alert -->
+                    <div id="successAlert" class="alert alert-success alert-dismissible fade show d-none" role="alert">
+                        <i class="fas fa-check-circle me-2"></i>
+                        <span id="successMessage"></span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+
+                    <form id="registerForm" method="POST">
+                        {% csrf_token %}
+
+                        <!-- Full Name -->
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label fw-500">Full Name</label>
+                            <input 
+                                type="text" 
+                                class="form-control form-control-lg" 
+                                id="fullName"
+                                name="full_name"
+                                placeholder="John Doe"
+                                required
+                            >
+                            <small class="text-danger d-none" id="fullNameError"></small>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-500">Email Address</label>
+                            <input 
+                                type="email" 
+                                class="form-control form-control-lg" 
+                                id="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                required
+                            >
+                            <small class="text-danger d-none" id="emailError"></small>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label fw-500">Password</label>
+                            <div class="input-group input-group-lg">
+                                <input 
+                                    type="password" 
+                                    class="form-control" 
+                                    id="password"
+                                    name="password"
+                                    placeholder="Enter a strong password"
+                                    required
+                                >
+                                <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <small class="text-danger d-none" id="passwordError"></small>
+                            <div class="password-requirements mt-2">
+                                <small class="d-block">Password must contain:</small>
+                                <small class="d-block">
+                                    <i class="fas fa-circle text-muted" style="font-size: 4px;"></i>
+                                    At least 8 characters
+                                </small>
+                                <small class="d-block">
+                                    <i class="fas fa-circle text-muted" style="font-size: 4px;"></i>
+                                    One uppercase letter
+                                </small>
+                                <small class="d-block">
+                                    <i class="fas fa-circle text-muted" style="font-size: 4px;"></i>
+                                    One lowercase letter
+                                </small>
+                                <small class="d-block">
+                                    <i class="fas fa-circle text-muted" style="font-size: 4px;"></i>
+                                    One number
+                                </small>
+                            </div>
+                        </div>
+
+                        <!-- Confirm Password -->
+                        <div class="mb-3">
+                            <label for="passwordConfirm" class="form-label fw-500">Confirm Password</label>
+                            <input 
+                                type="password" 
+                                class="form-control form-control-lg" 
+                                id="passwordConfirm"
+                                name="password_confirm"
+                                placeholder="Confirm your password"
+                                required
+                            >
+                            <small class="text-danger d-none" id="passwordConfirmError"></small>
+                        </div>
+
+                        <!-- Terms & Conditions -->
+                        <div class="mb-4 form-check">
+                            <input 
+                                type="checkbox" 
+                                class="form-check-input" 
+                                id="terms"
+                                name="terms"
+                                required
+                            >
+                            <label class="form-check-label" for="terms">
+                                I agree to the 
+                                <a href="#" class="text-decoration-none">Terms & Conditions</a> 
+                                and 
+                                <a href="#" class="text-decoration-none">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-dark btn-lg w-100 mb-3" id="submitBtn">
+                            <i class="fas fa-user-plus me-2"></i> Create Account
+                        </button>
+                    </form>
+
+                    <!-- Divider -->
+                    <div class="auth-divider mb-3">
+                        <span>Already have an account?</span>
+                    </div>
+
+                    <!-- Sign In Link -->
+                    <a href="{% url 'signin' %}" class="btn btn-outline-dark btn-lg w-100">
+                        <i class="fas fa-sign-in-alt me-2"></i> Sign In Instead
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('registerForm');
+    const toggleBtn = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('password');
+
+    // Toggle password visibility
+    toggleBtn.addEventListener('click', function() {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        toggleBtn.innerHTML = type === 'password' 
+            ? '<i class="fas fa-eye"></i>' 
+            : '<i class="fas fa-eye-slash"></i>';
+    });
+
+    // Form submission
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Hide alerts
+        document.getElementById('errorAlert').classList.add('d-none');
+        document.getElementById('successAlert').classList.add('d-none');
+
+        // Clear errors
+        document.querySelectorAll('small.text-danger').forEach(el => el.classList.add('d-none'));
+
+        // Get form data
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value;
+        const passwordConfirm = document.getElementById('passwordConfirm').value;
+        const terms = document.getElementById('terms').checked;
+
+        // Validation
+        let hasErrors = false;
+
+        if (fullName.length < 2) {
+            document.getElementById('fullNameError').textContent = 'Name must be at least 2 characters';
+            document.getElementById('fullNameError').classList.remove('d-none');
+            hasErrors = true;
+        }
+
+        if (!email.includes('@')) {
+            document.getElementById('emailError').textContent = 'Please enter a valid email';
+            document.getElementById('emailError').classList.remove('d-none');
+            hasErrors = true;
+        }
+
+        if (password.length < 8) {
+            document.getElementById('passwordError').textContent = 'Password must be at least 8 characters';
+            document.getElementById('passwordError').classList.remove('d-none');
+            hasErrors = true;
+        }
+
+        if (password !== passwordConfirm) {
+            document.getElementById('passwordConfirmError').textContent = 'Passwords do not match';
+            document.getElementById('passwordConfirmError').classList.remove('d-none');
+            hasErrors = true;
+        }
+
+        if (!terms) {
+            document.getElementById('errorMessage').textContent = 'Please accept the terms and conditions';
+            document.getElementById('errorAlert').classList.remove('d-none');
+            hasErrors = true;
+        }
+
+        if (hasErrors) return;
+
+        // Disable button
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i> Creating Account...';
+
+        try {
+            const response = await fetch('{% url "register" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: JSON.stringify({
+                    full_name: fullName,
+                    email: email,
+                    password: password,
+                    password_confirm: passwordConfirm
+                })
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                document.getElementById('successMessage').textContent = data.message;
+                document.getElementById('successAlert').classList.remove('d-none');
+                form.reset();
+                
+                setTimeout(() => {
+                    window.location.href = data.redirect || '{% url "dashboard" %}';
+                }, 1500);
+            } else {
+                if (data.errors) {
+                    for (const [field, errors] of Object.entries(data.errors)) {
+                        const errorEl = document.getElementById(field + 'Error');
+                        if (errorEl) {
+                            errorEl.textContent = Array.isArray(errors) ? errors[0] : errors;
+                            errorEl.classList.remove('d-none');
+                        }
+                    }
+                } else {
+                    document.getElementById('errorMessage').textContent = data.message;
+                    document.getElementById('errorAlert').classList.remove('d-none');
+                }
+            }
+        } catch (error) {
+            document.getElementById('errorMessage').textContent = 'An error occurred. Please try again.';
+            document.getElementById('errorAlert').classList.remove('d-none');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<i class="fas fa-user-plus me-2"></i> Create Account';
+        }
+    });
+});
+</script>
+
+<style>
+.auth-page {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.auth-left {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 60px 40px;
+}
+
+.auth-left-content {
+    max-width: 500px;
+}
+
+.auth-left h2 {
+    line-height: 1.2;
+}
+
+.auth-left p {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.benefit-item {
+    display: flex;
+}
+
+.benefit-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.benefit-item h6,
+.benefit-item p {
+    color: white;
+}
+
+.auth-right {
+    background: white;
+    display: flex;
+    align-items: center;
+    padding: 40px;
+}
+
+.auth-form-wrapper {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+.auth-header h4 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.form-control-lg {
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    padding: 12px 16px;
+    font-size: 15px;
+}
+
+.form-control-lg:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.input-group-lg .btn {
+    border-radius: 0 8px 8px 0;
+}
+
+.input-group-lg .form-control {
+    border-radius: 8px 0 0 8px;
+}
+
+.password-requirements {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.form-check-input {
+    border-radius: 4px;
+}
+
+.form-check-input:checked {
+    background-color: #667eea;
+    border-color: #667eea;
+}
+
+.btn-dark {
+    background-color: #2d3748;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+    background-color: #1a202c;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.btn-dark:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-outline-dark {
+    border-radius: 8px;
+    border: 2px solid #2d3748;
+    color: #2d3748;
+    font-weight: 600;
+}
+
+.btn-outline-dark:hover {
+    background-color: #2d3748;
+    border-color: #2d3748;
+}
+
+.auth-divider {
+    text-align: center;
+    position: relative;
+    padding: 15px 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 45%;
+    height: 1px;
+    background: #e0e0e0;
+}
+
+.auth-divider::before {
+    left: 0;
+}
+
+.auth-divider::after {
+    right: 0;
+}
+
+.auth-divider span {
+    background: white;
+    padding: 0 10px;
+    color: #666;
+    font-size: 14px;
+}
+
+@media (max-width: 992px) {
+    .auth-left {
+        display: none;
+    }
+
+    .auth-page {
+        background: white;
+    }
+
+    .auth-right {
+        min-height: 100vh;
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .auth-form-wrapper {
+        max-width: 100%;
+    }
+
+    .auth-right {
+        padding: 30px 15px;
+    }
+
+    .display-4 {
+        font-size: 28px;
+    }
+}
+</style>
+{% endblock %}
